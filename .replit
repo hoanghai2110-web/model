@@ -1,0 +1,71 @@
+modules = ["python-3.12"]
+
+[nix]
+packages = ["mailutils", "wget"]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 44567744
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python login.py"
+
+[[workflows.workflow]]
+name = "Run"
+author = 44567744
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python login.py"
+
+[[workflows.workflow]]
+name = "Fine-tune HyperMamba"
+author = 44567744
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python fine_tune.py"
+
+[[workflows.workflow]]
+name = "Test HyperMamba"
+author = 44567744
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python test_model.py"
+
+[[workflows.workflow]]
+name = "Fine-tune HyperMamba (Improved)"
+author = 44604731
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python fine_tune.py"
+
+[[workflows.workflow]]
+name = "Test Qwen2 Tokenizer"
+author = 44628569
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python test_tokenizer.py"
+
+[[workflows.workflow]]
+name = "Fine-tune HyperMamba (Fixed)"
+author = 44628569
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python fine_tune.py"
